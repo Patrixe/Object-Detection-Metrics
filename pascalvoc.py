@@ -174,7 +174,7 @@ parser = argparse.ArgumentParser(
     prog='Object Detection Metrics - Pascal VOC',
     description='This project applies the most popular metrics used to evaluate object detection '
     'algorithms.\nThe current implemention runs the Pascal VOC metrics.\nFor further references, '
-    'please check:\nhttps://github.com/rafaelpadilla/Object-Detection-Metrics',
+    'please check:\nhttps://github.com/rafaelpadilla/object_detection_metrics',
     epilog="Developed by: Rafael Padilla (rafael.padilla@smt.ufrj.br)")
 # formatter_class=RawTextHelpFormatter)
 parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + VERSION)
