@@ -1,6 +1,6 @@
 ###########################################################################################
 #                                                                                         #
-# Evaluator class: Implements the most popular metrics for object detection               #
+# Detector class: Implements the most popular metrics for object detection               #
 #                                                                                         #
 # Developed by: Rafael Padilla (rafael.padilla@smt.ufrj.br)                               #
 #        SMT - Signal Multimedia and Telecommunications Lab                               #
