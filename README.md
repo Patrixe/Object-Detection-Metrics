@@ -1,6 +1,4 @@
-<p align="left"> 
-<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2554189.svg">
-</p>
+Custom version, you better visit the repo from R.Padilla
 
 ## Citation
 This work was accepted to be presented at IWSSIP 2020. If you use this code for your research, please consider citing:
