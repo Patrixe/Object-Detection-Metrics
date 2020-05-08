@@ -17,6 +17,9 @@ from .utils import *
 
 
 class Evaluator:
+    def GetPascalVOCMetrics11Point(self, boundingboxes, IOUThreshold=0.5):
+        return self.GetPascalVOCMetrics(boundingboxes, IOUThreshold, MethodAveragePrecision.ElevenPointInterpolation)
+
     def GetPascalVOCMetrics(self,
                             boundingboxes,
                             IOUThreshold=0.5,
@@ -334,27 +337,29 @@ class Evaluator:
             rhoInterp.append(pmax)
         # By definition AP = sum(max(precision whose recall is above r))/11
         ap = sum(rhoInterp) / 11
-        # Generating values for the plot
-        rvals = []
-        rvals.append(recallValid[0])
-        [rvals.append(e) for e in recallValid]
-        rvals.append(0)
-        pvals = []
-        pvals.append(0)
-        [pvals.append(e) for e in rhoInterp]
-        pvals.append(0)
-        # rhoInterp = rhoInterp[::-1]
-        cc = []
-        for i in range(len(rvals)):
-            p = (rvals[i], pvals[i - 1])
-            if p not in cc:
-                cc.append(p)
-            p = (rvals[i], pvals[i])
-            if p not in cc:
-                cc.append(p)
-        recallValues = [i[0] for i in cc]
-        rhoInterp = [i[1] for i in cc]
         return [ap, rhoInterp, recallValues, None]
+        # The following seems to be some kind of pre processing the data for plotting them later on, the values itself do not change anymore!
+        # # Generating values for the plot
+        # rvals = []
+        # rvals.append(recallValid[0])
+        # [rvals.append(e) for e in recallValid]
+        # rvals.append(0)
+        # pvals = []
+        # pvals.append(0)
+        # [pvals.append(e) for e in rhoInterp]
+        # pvals.append(0)
+        # # rhoInterp = rhoInterp[::-1]
+        # cc = []
+        # for i in range(len(rvals)):
+        #     p = (rvals[i], pvals[i - 1])
+        #     if p not in cc:
+        #         cc.append(p)
+        #     p = (rvals[i], pvals[i])
+        #     if p not in cc:
+        #         cc.append(p)
+        # recallValues = [i[0] for i in cc]
+        # rhoInterp = [i[1] for i in cc]
+        # return [ap, rhoInterp, recallValues, None]
 
     # For each detections, calculate IOU with reference
     @staticmethod
